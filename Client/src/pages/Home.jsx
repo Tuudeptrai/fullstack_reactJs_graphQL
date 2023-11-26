@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import React, { Component } from 'react';
+import UserMenu from '../components/UserMenu';
 
 class Home extends Component {
     render() {
