@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import UserMenu from '../components/UserMenu';
 import FolderList from '../components/FolderList';
 import { Outlet, useLoaderData } from 'react-router-dom';
-export default function () {
+export default function Home() {
    
         const { folders } = useLoaderData();
         return (

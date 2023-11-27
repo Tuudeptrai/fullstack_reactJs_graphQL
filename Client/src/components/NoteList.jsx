@@ -21,7 +21,10 @@ import {
 export default function NoteList(props) {
     const { noteId, folderId } = useParams();
     const [activeNoteId, setActiveNoteId] = useState(noteId);
-    const folder = { notes: [{ id: '1', content: '<p> this is new note</p>' }] };
+    // const folder = { notes: [{ id: '1', content: '<p> this is new note</p>' }] };
+    const {folder} = useLoaderData();
+
+    console.log('notelist', {folder})
     // const handleAddNewNote = () => {
     //     submit(
     //       {
