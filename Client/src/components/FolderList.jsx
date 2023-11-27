@@ -4,9 +4,9 @@ import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 export default function FolderList({ folders }) {
-//   const { folderId } = useParams();
-//   console.log({ folderId });
- 
+  const { folderId } = useParams();
+  console.log({ folderId });
+  const [activeFolderId, setActiveFolderId] = useState(folderId);
 
   return (
     <List
@@ -34,12 +34,13 @@ export default function FolderList({ folders }) {
             style={{
               textDecoration: 'none',
             }}
+            onClick={() => setActiveFolderId(id)}
           >
             <Card
               sx={{
                 mb: '5px',
-                // backgroundColor:
-                //   id === activeFolderId ? 'rgb(255 211 140)' : null,
+                backgroundColor:
+                  id === activeFolderId ? 'rgb(255 211 140)' : null,
               }}
             >
               <CardContent

@@ -5,7 +5,7 @@ import FolderList from '../components/FolderList';
 import { Outlet, useLoaderData } from 'react-router-dom';
 export default function () {
    
-        // const { folders } = useLoaderData();
+        const { folders } = useLoaderData();
         return (
             <>
                 <Typography variant='h4' sx={{ mb: '20px' }}>Note App</Typography>
@@ -17,7 +17,7 @@ export default function () {
                     sx={{ height: '50vh', boxShadow: '0 0 15px 0 rgb(193 193 193 / 60%)' }}
                 >
                     <Grid item xs={3} sx={{ height: '100%' }}>
-                        <FolderList folders={[{id:'1',name:'tuu dep trai' },{id:'1',name:'tuu banh bao' }]}/>
+                        <FolderList folders={folders}/>
                     </Grid>
                     <Grid item xs={9} sx={{ height: '100%' }}>
                         <Outlet />

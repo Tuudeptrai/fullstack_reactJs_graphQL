@@ -8,11 +8,19 @@ import {
     Typography,
 } from '@mui/material';
 import { Box } from '@mui/system';
-import React from 'react'
-import { Link, Outlet } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import {
+    Link,
+    Outlet,
+    useParams,
+    useLoaderData,
+    useSubmit,
+    useNavigate,
+} from 'react-router-dom';
 
 export default function NoteList(props) {
-
+    const { noteId, folderId } = useParams();
+    const [activeNoteId, setActiveNoteId] = useState(noteId);
     const folder = { notes: [{ id: '1', content: '<p> this is new note</p>' }] };
     // const handleAddNewNote = () => {
     //     submit(
@@ -56,12 +64,13 @@ export default function NoteList(props) {
                                     key={id}
                                     to={`note/${id}`}
                                     style={{ textDecoration: 'none' }}
+                                    onClick={() => setActiveNoteId(id)}
                                 >
                                     <Card
                                         sx={{
                                             mb: '5px',
-                                            // backgroundColor:
-                                            //     id === activeNoteId ? 'rgb(255 211 140)' : null,
+                                            backgroundColor:
+                                                id === activeNoteId ? 'rgb(255 211 140)' : null,
                                         }}
                                     >
                                         <CardContent
