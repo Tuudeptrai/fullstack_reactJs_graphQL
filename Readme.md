@@ -23,3 +23,5 @@
 - project setting
 - chose <> for web
 - npm install firebase
+5. editer
+npm install --save react-draft-wysiwyg draft-js draftjs-to-html

@@ -8,42 +8,39 @@ import NoteList from "../components/NoteList";
 import Note from "../components/Note";
 
 const AuthLayout = () => {
-  return  <AuthProvider><Outlet/></AuthProvider> 
+  return <AuthProvider><Outlet/></AuthProvider>
 }
 
 export default createBrowserRouter([
-    {
-        element:<AuthLayout/>,
-        errorElement: <ErorrPage/>,
-        children:[
-            {
-                element: <Login/>,
-                path: '/login',
-            },
-            {
-                element: <ProtectedRoute/>,
+  {
+    element: <AuthLayout />,
+    errorElement: <ErorrPage />,
+    children: [
+      {
+        element: <Login />,
+        path: '/login',
+      },
+      {
+        element: <ProtectedRoute />,
+        children: [
+          {
+            element: <Home />,
+            path: '/',
+            children: [
+              {
+                element: <NoteList />,
+                path: '/folders/:folderId',
                 children: [
-                    {
-                        element: <Home/>,
-                        path: '/',
-                        children: [
-                            {
-                                element: <NoteList/>,
-                                path: `/folders/:folderId`,
-                                children: [
-                                    {
-                                        element: <Note/>,
-                                        path: `/note/:nodeId`,
-                                    }
-                                ],
-                            }
-                        ],
-                    }
+                  {
+                    element: <Note />,
+                    path: 'note/:nodeId',  // Adjusted to relative path
+                  }
                 ],
-            },
-            
-          
-
-        ]
-    }
-])
+              }
+            ],
+          }
+        ],
+      },
+    ]
+  }
+]);
